@@ -9,8 +9,9 @@ obj-m := uef_module.o
 modules:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 	rm -rf *.o *~ core .depend .*.cmd *.mod.c .tmp_versions *.order *.symvers
+	$(CC) -o uef_userland uef_userland.c -Wall
 
 clean:
-	rm -rf *.o *.ko *~ core .depend .*.cmd *.mod.c .tmp_versions *.order *.symvers
+	rm -rf *.o *.ko *~ core .depend .*.cmd *.mod.c .tmp_versions *.order *.symvers *.out uef_userland
 
 .PHONY: modules clean
